@@ -56,7 +56,7 @@ function Nav({ nav, children, fallbackHref }) {
     <nav
       id="nav"
       ref={scrollRef}
-      className="px-1 pt-6 overflow-y-auto font-medium text-base sm:px-3 xl:px-5 lg:text-sm pb-10 lg:pt-10 lg:pb-14 sticky?lg:h-(screen-18)"
+      className="px-1 pt-24 overflow-y-auto font-medium text-base sm:px-3 xl:px-5 lg:text-sm pb-10 lg:pt-10 lg:pb-14 sticky?lg:h-(screen-18)"
     >
       <div className="relative flex mb-8 px-3 lg:hidden">
         <VersionSwitcher />
@@ -152,8 +152,8 @@ function TopLevelNav() {
   return (
     <>
       <TopLevelLink
-        href="/docs"
-        isActive={current === '' || current === 'docs'}
+        href="/"
+        isActive={current === ''}
         color="pink"
         className="mb-4"
         icon={
@@ -175,98 +175,6 @@ function TopLevelNav() {
       >
         Documentation
       </TopLevelLink>
-      <TopLevelLink
-        href="https://tailwindui.com/components?utm_source=tailwindcss&utm_medium=navigation"
-        color="violet"
-        className="mb-4"
-        icon={
-          <>
-            <path d="M6 9l6-3 6 3v6l-6 3-6-3V9z" fill="#F5F3FF" />
-            <path d="M6 9l6 3v6l-6-3V9z" fill="#DDD6FE" />
-            <path d="M18 9l-6 3v6l6-3V9z" fill="#C4B5FD" />
-          </>
-        }
-      >
-        Components
-      </TopLevelLink>
-      <TopLevelLink
-        href="https://play.tailwindcss.com"
-        color="amber"
-        className="mb-4"
-        icon={
-          <>
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M13.196 6.02a1 1 0 01.785 1.176l-2 10a1 1 0 01-1.961-.392l2-10a1 1 0 011.176-.784z"
-              fill="#FDE68A"
-            />
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M15.293 9.293a1 1 0 011.414 0l2 2a1 1 0 010 1.414l-2 2a1 1 0 01-1.414-1.414L16.586 12l-1.293-1.293a1 1 0 010-1.414zM8.707 9.293a1 1 0 010 1.414L7.414 12l1.293 1.293a1 1 0 11-1.414 1.414l-2-2a1 1 0 010-1.414l2-2a1 1 0 011.414 0z"
-              fill="#FDF4FF"
-            />
-          </>
-        }
-      >
-        Playground
-      </TopLevelLink>
-      <TopLevelLink
-        href="https://blog.tailwindcss.com"
-        color="teal"
-        className="mb-4"
-        icon={
-          <>
-            <path
-              d="M8 9a1 1 0 011-1h8a1 1 0 011 1v7.5a1.5 1.5 0 01-1.5 1.5h-7A1.5 1.5 0 018 16.5V9z"
-              fill="#6EE7B7"
-            />
-            <path
-              d="M15 7a1 1 0 00-1-1H7a1 1 0 00-1 1v9.5A1.5 1.5 0 007.5 18H16v-.085a1.5 1.5 0 01-1-1.415V7z"
-              fill="#ECFDF5"
-            />
-            <path fill="#A7F3D0" d="M8 8h5v4H8zM8 14h5v2H8z" />
-          </>
-        }
-      >
-        News
-      </TopLevelLink>
-      <TopLevelLink
-        href="/resources"
-        isActive={current === 'resources'}
-        color="blue"
-        className="mb-4"
-        icon={
-          <>
-            <path d="M17 13a1 1 0 011 1v3a1 1 0 01-1 1H8.5a2.5 2.5 0 010-5H17z" fill="#93C5FD" />
-            <path
-              d="M12.743 7.722a1 1 0 011.414 0l2.122 2.121a1 1 0 010 1.414l-6.01 6.01a2.5 2.5 0 11-3.536-3.536l6.01-6.01z"
-              fill="#BFDBFE"
-            />
-            <path d="M6 7a1 1 0 011-1h3a1 1 0 011 1v8.5a2.5 2.5 0 01-5 0V7z" fill="#EFF6FF" />
-            <path d="M9.5 15.5a1 1 0 11-2 0 1 1 0 012 0z" fill="#60A5FA" />
-          </>
-        }
-      >
-        Resources
-      </TopLevelLink>
-      <TopLevelLink
-        href="https://www.youtube.com/tailwindlabs"
-        color="purple"
-        className="mb-10"
-        icon={
-          <>
-            <circle cx="12" cy="12" r="7" fill="#F3E8FF" />
-            <path
-              d="M14.52 11.136a1 1 0 010 1.728l-3.016 1.759A1 1 0 0110 13.759v-3.518a1 1 0 011.504-.864l3.015 1.76z"
-              fill="#C084FC"
-            />
-          </>
-        }
-      >
-        Screencasts
-      </TopLevelLink>
     </>
   )
 }
@@ -274,7 +182,7 @@ function TopLevelNav() {
 export function SidebarLayout({ children, navIsOpen, setNavIsOpen, nav, sidebar, fallbackHref }) {
   return (
     <SidebarContext.Provider value={{ nav, navIsOpen, setNavIsOpen }}>
-      <div className="w-full max-w-8xl mx-auto">
+      <div className="w-full mx-auto">
         <div className="lg:flex">
           <div
             id="sidebar"
@@ -300,7 +208,7 @@ export function SidebarLayout({ children, navIsOpen, setNavIsOpen, nav, sidebar,
           <div
             id="content-wrapper"
             className={clsx(
-              'min-w-0 w-full flex-auto lg:static lg:max-h-full lg:overflow-visible',
+              'min-w-0 w-full max-w-7xl mx-auto  flex-auto lg:static lg:max-h-full lg:overflow-visible',
               {
                 'overflow-hidden max-h-screen fixed': navIsOpen,
               }

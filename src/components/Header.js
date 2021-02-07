@@ -8,8 +8,8 @@ import { Logo } from '@/components/Logo'
 export function Header({ navIsOpen, onNavToggle }) {
   return (
     <>
-      <div className="sticky top-0 z-40 lg:z-50 w-full max-w-8xl mx-auto bg-white flex-none flex">
-        <div className="flex-none pl-4 sm:pl-6 xl:pl-8 flex items-center border-b border-gray-200 lg:border-b-0 lg:w-60 xl:w-72">
+      <div className="sticky top-0 z-40 lg:z-50 w-full mx-auto bg-white flex-none flex">
+        <div className="flex-none pl-24 sm:pl-24 lg:pl-4 xl:pl-8 flex items-center border-b border-gray-200 lg:border-b-0 lg:w-60 xl:w-72">
           <Link href="/">
             <a
               className="overflow-hidden w-10 md:w-auto"
@@ -25,7 +25,7 @@ export function Header({ navIsOpen, onNavToggle }) {
         </div>
         <div className="flex-auto border-b border-gray-200 h-18 flex items-center justify-between px-4 sm:px-6 lg:mx-6 lg:px-0 xl:mx-8">
           <Search />
-          <div className="lg:w-64 pl-8 flex-shrink-0 flex items-center justify-end space-x-6">
+          <div className="lg:w-64 pl-4 sm:pl-8 flex-shrink-0 flex items-center justify-end space-x-6">
             <VersionSwitcher className="hidden lg:block" />
             <a
               href="https://github.com/tailwindlabs/tailwindcss"
@@ -44,7 +44,7 @@ export function Header({ navIsOpen, onNavToggle }) {
       </div>
       <button
         type="button"
-        className="fixed z-50 bottom-4 right-4 w-16 h-16 rounded-full bg-gray-900 text-white block lg:hidden"
+        className="fixed z-50 top-0 left-0 right-4 w-18 h-18 bg-gray-400 text-white block lg:hidden"
         onClick={() => onNavToggle(!navIsOpen)}
       >
         <span className="sr-only">Open site navigation</span>
